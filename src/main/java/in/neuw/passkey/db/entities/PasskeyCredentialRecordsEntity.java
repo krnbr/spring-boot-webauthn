@@ -16,7 +16,7 @@ import lombok.experimental.Accessors;
 @Table(name = "passkey_credential_records", indexes = {
         @Index(name = "idx_userId", columnList = "userId")
 })
-public class CredentialRecordsEntity {
+public class PasskeyCredentialRecordsEntity {
 
     @Id
     private String credentialId;

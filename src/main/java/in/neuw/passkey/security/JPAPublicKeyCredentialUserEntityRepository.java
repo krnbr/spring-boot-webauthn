@@ -1,6 +1,6 @@
 package in.neuw.passkey.security;
 
-import in.neuw.passkey.db.entities.UserPasskeyEntity;
+import in.neuw.passkey.db.entities.PasskeyUserEntity;
 import in.neuw.passkey.db.repositories.UserPasskeyEntityJPARepository;
 import org.springframework.security.web.webauthn.api.Bytes;
 import org.springframework.security.web.webauthn.api.ImmutablePublicKeyCredentialUserEntity;
@@ -45,15 +45,15 @@ public class JPAPublicKeyCredentialUserEntityRepository implements PublicKeyCred
 		this.userPasskeyEntityRepository.deleteById(id.toBase64UrlString());
 	}
 
-	private UserPasskeyEntity transform(PublicKeyCredentialUserEntity input) {
-		var userPasskeyEntity = new UserPasskeyEntity();
+	private PasskeyUserEntity transform(PublicKeyCredentialUserEntity input) {
+		var userPasskeyEntity = new PasskeyUserEntity();
 		userPasskeyEntity.setUsername(input.getName());
 		userPasskeyEntity.setId(input.getId().toBase64UrlString());
 		userPasskeyEntity.setDisplayName(input.getDisplayName());
 		return userPasskeyEntity;
 	}
 
-	private PublicKeyCredentialUserEntity transform(UserPasskeyEntity input) {
+	private PublicKeyCredentialUserEntity transform(PasskeyUserEntity input) {
         return ImmutablePublicKeyCredentialUserEntity
 				.builder()
                 .id(Bytes.fromBase64(input.getId()))

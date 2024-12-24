@@ -1,6 +1,6 @@
 package in.neuw.passkey.security;
 
-import in.neuw.passkey.db.entities.CredentialRecordsEntity;
+import in.neuw.passkey.db.entities.PasskeyCredentialRecordsEntity;
 import in.neuw.passkey.db.repositories.PasskeyRecordsJPARepository;
 import org.springframework.security.web.webauthn.api.*;
 import org.springframework.security.web.webauthn.management.UserCredentialRepository;
@@ -49,36 +49,36 @@ public class JPACustomUserCredentialRepository implements UserCredentialReposito
 		return credentialRecordEntities.stream().map(this::transform).toList();
 	}
 
-	private CredentialRecord transform(CredentialRecordsEntity credentialRecordsEntity) {
+	private CredentialRecord transform(PasskeyCredentialRecordsEntity passkeyCredentialRecordsEntity) {
 		var transports = Stream.of(
-                credentialRecordsEntity
+                passkeyCredentialRecordsEntity
                         .getTransports()
                         .split(",")
         ).map(AuthenticatorTransport::valueOf).collect(Collectors.toCollection(HashSet::new));
         return ImmutableCredentialRecord.builder()
-                .credentialId(Bytes.fromBase64(credentialRecordsEntity.getCredentialId()))
-                .credentialType(PublicKeyCredentialType.valueOf(credentialRecordsEntity.getCredentialType()))
-                .attestationClientDataJSON(Bytes.fromBase64(credentialRecordsEntity.getAttestationClientDataJSON()))
-                .attestationObject(Bytes.fromBase64(credentialRecordsEntity.getAttestationObject()))
-                .backupEligible(credentialRecordsEntity.isBackupEligible())
-                .backupState(credentialRecordsEntity.isBackupState())
-                .created(Instant.ofEpochMilli(credentialRecordsEntity.getCreated()))
-                .lastUsed(Instant.ofEpochMilli(credentialRecordsEntity.getLastUsed()))
-                .label(credentialRecordsEntity.getLabel())
-                .userEntityUserId(Bytes.fromBase64(credentialRecordsEntity.getUserId()))
-                .publicKey(new ImmutablePublicKeyCose(Bytes.fromBase64(credentialRecordsEntity.getPublicKey()).getBytes()))
-                .signatureCount(credentialRecordsEntity.getSignatureCount())
-                .uvInitialized(credentialRecordsEntity.isUvInitialized())
+                .credentialId(Bytes.fromBase64(passkeyCredentialRecordsEntity.getCredentialId()))
+                .credentialType(PublicKeyCredentialType.valueOf(passkeyCredentialRecordsEntity.getCredentialType()))
+                .attestationClientDataJSON(Bytes.fromBase64(passkeyCredentialRecordsEntity.getAttestationClientDataJSON()))
+                .attestationObject(Bytes.fromBase64(passkeyCredentialRecordsEntity.getAttestationObject()))
+                .backupEligible(passkeyCredentialRecordsEntity.isBackupEligible())
+                .backupState(passkeyCredentialRecordsEntity.isBackupState())
+                .created(Instant.ofEpochMilli(passkeyCredentialRecordsEntity.getCreated()))
+                .lastUsed(Instant.ofEpochMilli(passkeyCredentialRecordsEntity.getLastUsed()))
+                .label(passkeyCredentialRecordsEntity.getLabel())
+                .userEntityUserId(Bytes.fromBase64(passkeyCredentialRecordsEntity.getUserId()))
+                .publicKey(new ImmutablePublicKeyCose(Bytes.fromBase64(passkeyCredentialRecordsEntity.getPublicKey()).getBytes()))
+                .signatureCount(passkeyCredentialRecordsEntity.getSignatureCount())
+                .uvInitialized(passkeyCredentialRecordsEntity.isUvInitialized())
 				.transports(transports)
                 .build();
 	}
 
-	private CredentialRecordsEntity transform(CredentialRecord credentialRecord) {
+	private PasskeyCredentialRecordsEntity transform(CredentialRecord credentialRecord) {
 		var transports = credentialRecord.getTransports().stream()
 				.map(AuthenticatorTransport::getValue)
 				.collect(Collectors.joining(","));
 		credentialRecord.getTransports().forEach(t -> System.out.println("t is "+t));
-        return new CredentialRecordsEntity()
+        return new PasskeyCredentialRecordsEntity()
                 .setCredentialId(credentialRecord.getCredentialId().toBase64UrlString())
                 .setUserId(credentialRecord.getUserEntityUserId().toBase64UrlString())
                 .setCreated(credentialRecord.getCreated().toEpochMilli())
