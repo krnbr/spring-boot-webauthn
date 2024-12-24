@@ -13,7 +13,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "passkey_credential_records", indexes = {
+@Table(name = "passkey_records", indexes = {
         @Index(name = "idx_userId", columnList = "userId")
 })
 public class PasskeyCredentialRecordsEntity {
