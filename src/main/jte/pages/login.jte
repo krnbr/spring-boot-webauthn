@@ -38,13 +38,13 @@
                         sign in
                     </button>
                 </div>
-                <div class="!mt-4 flex justify-end">
+                <%--<div class="!mt-4 flex justify-end">
                     <a
                             href="/reset-password"
                             class="block antialiased font-sans text-sm font-light leading-normal text-blue-gray-900 font-medium"
                     >Forgot password</a
                     >
-                </div>
+                </div>--%>
                 <div class="divider">OR</div>
                 <button
                         class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm py-3.5 px-7 rounded-lg border border-gray-900 text-gray-900 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] block w-full gap-3 mt-6 flex h-12 items-center justify-center gap-2"
@@ -59,12 +59,12 @@
                     />
                     <!-- -->Sign in with a passkey
                 </button>
-                <p
+                <%--<p
                         class="block antialiased font-sans text-sm font-light leading-normal text-gray-700 !mt-4 text-center font-normal"
                 >
                     Not registered?<!-- -->
                     <a href="/signup" class="font-medium text-gray-900">Create account</a>
-                </p>
+                </p>--%>
             </form>
         </div>
         <footer class="w-full bg-white p-8">
