@@ -1,7 +1,7 @@
 package in.neuw.passkey.security;
 
 import in.neuw.passkey.db.entities.PasskeyUserEntity;
-import in.neuw.passkey.db.repositories.UserPasskeyEntityJPARepository;
+import in.neuw.passkey.db.repositories.PasskeyUserEntityJPARepository;
 import org.springframework.security.web.webauthn.api.Bytes;
 import org.springframework.security.web.webauthn.api.ImmutablePublicKeyCredentialUserEntity;
 import org.springframework.security.web.webauthn.api.PublicKeyCredentialUserEntity;
@@ -10,9 +10,9 @@ import org.springframework.util.Assert;
 
 public class JPAPublicKeyCredentialUserEntityRepository implements PublicKeyCredentialUserEntityRepository {
 
-	private final UserPasskeyEntityJPARepository userPasskeyEntityRepository;
+	private final PasskeyUserEntityJPARepository userPasskeyEntityRepository;
 
-	public JPAPublicKeyCredentialUserEntityRepository(UserPasskeyEntityJPARepository userPasskeyEntityRepository) {
+	public JPAPublicKeyCredentialUserEntityRepository(PasskeyUserEntityJPARepository userPasskeyEntityRepository) {
 		this.userPasskeyEntityRepository = userPasskeyEntityRepository;
 	}
 

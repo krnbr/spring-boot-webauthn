@@ -1,8 +1,8 @@
 package in.neuw.passkey.config;
 
-import in.neuw.passkey.db.repositories.PasskeyRecordsJPARepository;
+import in.neuw.passkey.db.repositories.PasskeyCredentialRecordsJPARepository;
 import in.neuw.passkey.db.repositories.UserJPARepository;
-import in.neuw.passkey.db.repositories.UserPasskeyEntityJPARepository;
+import in.neuw.passkey.db.repositories.PasskeyUserEntityJPARepository;
 import in.neuw.passkey.security.CustomUserDetailsService;
 import in.neuw.passkey.security.JPACustomUserCredentialRepository;
 import in.neuw.passkey.security.JPAPublicKeyCredentialUserEntityRepository;
@@ -45,13 +45,13 @@ public class SecurityConfig {
     }
 
     @Bean
-    UserCredentialRepository userCredentialRepository(PasskeyRecordsJPARepository passkeyRecordsJPARepository) {
-        return new JPACustomUserCredentialRepository(passkeyRecordsJPARepository);
+    UserCredentialRepository userCredentialRepository(PasskeyCredentialRecordsJPARepository passkeyCredentialRecordsJPARepository) {
+        return new JPACustomUserCredentialRepository(passkeyCredentialRecordsJPARepository);
     }
 
     @Bean
-    PublicKeyCredentialUserEntityRepository publicKeyCredentialUserEntityRepository(UserPasskeyEntityJPARepository userPasskeyEntityJPARepository) {
-        return new JPAPublicKeyCredentialUserEntityRepository(userPasskeyEntityJPARepository);
+    PublicKeyCredentialUserEntityRepository publicKeyCredentialUserEntityRepository(PasskeyUserEntityJPARepository passkeyUserEntityJPARepository) {
+        return new JPAPublicKeyCredentialUserEntityRepository(passkeyUserEntityJPARepository);
     }
 
     @Bean

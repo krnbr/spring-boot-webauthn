@@ -1,7 +1,7 @@
 package in.neuw.passkey.security;
 
 import in.neuw.passkey.db.entities.PasskeyCredentialRecordsEntity;
-import in.neuw.passkey.db.repositories.PasskeyRecordsJPARepository;
+import in.neuw.passkey.db.repositories.PasskeyCredentialRecordsJPARepository;
 import org.springframework.security.web.webauthn.api.*;
 import org.springframework.security.web.webauthn.management.UserCredentialRepository;
 import org.springframework.util.Assert;
@@ -14,10 +14,10 @@ import java.util.stream.Stream;
 
 public class JPACustomUserCredentialRepository implements UserCredentialRepository {
 
-	private final PasskeyRecordsJPARepository passkeyRecordsRepository;
+	private final PasskeyCredentialRecordsJPARepository passkeyRecordsRepository;
 
-	public JPACustomUserCredentialRepository(PasskeyRecordsJPARepository passkeyRecordsJPARepository) {
-		this.passkeyRecordsRepository = passkeyRecordsJPARepository;
+	public JPACustomUserCredentialRepository(PasskeyCredentialRecordsJPARepository passkeyCredentialRecordsJPARepository) {
+		this.passkeyRecordsRepository = passkeyCredentialRecordsJPARepository;
 	}
 
 	@Override

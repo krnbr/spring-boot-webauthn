@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface UserPasskeyEntityJPARepository extends CrudRepository<PasskeyUserEntity, String> {
+public interface PasskeyUserEntityJPARepository extends CrudRepository<PasskeyUserEntity, String> {
 
     Optional<PasskeyUserEntity> findByUsername(String username);
 

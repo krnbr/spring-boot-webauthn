@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface PasskeyRecordsJPARepository extends CrudRepository<PasskeyCredentialRecordsEntity, String> {
+public interface PasskeyCredentialRecordsJPARepository extends CrudRepository<PasskeyCredentialRecordsEntity, String> {
 
     List<PasskeyCredentialRecordsEntity> findByUserId(String userId);
 
