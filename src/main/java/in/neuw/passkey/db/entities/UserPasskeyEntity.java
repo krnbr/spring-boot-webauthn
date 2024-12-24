@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user_passkeys", indexes = {
+@Table(name = "passkey_users", indexes = {
     @Index(name = "idx_username", columnList = "username", unique = true)
 })
 public class UserPasskeyEntity {
