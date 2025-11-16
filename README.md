@@ -22,7 +22,9 @@ values  ('0193d2b3-2fb6-7e3d-829a-a97e463db956', '2024-12-23 14:23:25.000000', 0
 **Beautification done on front layer - kinda obvious.**
 
 ➫ JTE for templates.
+
 ➫ HTMX for an interaction and loading
+
 ➫ For front end used Tailwind. (⚠️ I am a tailwind newbie)
 
 ➫ Raw Tailwind Styles [tw.styles.css](src/main/resources/static/css/tw.styles.css)
