@@ -68,7 +68,7 @@
             </form>
         </div>
         <footer class="w-full bg-white p-8">
-            <div class="divider mx-auto max-w-[24rem]">Copyright © 2024 01101011.</div>
+            <div class="divider mx-auto max-w-[24rem]">Copyright © 2025 01101011.</div>
         </footer>
         <script type="text/javascript" src="js/webauthn.js"></script>
         <script type="text/javascript">

@@ -29,10 +29,6 @@ public class JPACustomUserCredentialRepository implements UserCredentialReposito
 	@Override
 	public void save(CredentialRecord credentialRecord) {
 		Assert.notNull(credentialRecord, "credentialRecord cannot be null");
-		System.out.println(credentialRecord.getTransports());
-		System.out.println(credentialRecord.getCredentialType().getValue());
-		System.out.println(credentialRecord.getSignatureCount());
-		System.out.println(passkeyRecordsRepository.save(transform(credentialRecord)));
 	}
 
 	@Override
@@ -77,7 +73,6 @@ public class JPACustomUserCredentialRepository implements UserCredentialReposito
 		var transports = credentialRecord.getTransports().stream()
 				.map(AuthenticatorTransport::getValue)
 				.collect(Collectors.joining(","));
-		credentialRecord.getTransports().forEach(t -> System.out.println("t is "+t));
         return new PasskeyCredentialRecordsEntity()
                 .setCredentialId(credentialRecord.getCredentialId().toBase64UrlString())
                 .setUserId(credentialRecord.getUserEntityUserId().toBase64UrlString())

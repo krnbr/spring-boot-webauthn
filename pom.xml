@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.1</version>
+        <version>3.5.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>in.neuw</groupId>
@@ -15,6 +15,8 @@
     <description>spring-security-passkeys</description>
     <properties>
         <java.version>21</java.version>
+        <jte.version>3.2.1</jte.version>
+        <webauthn.version>0.30.0.RELEASE</webauthn.version>
     </properties>
     <dependencies>
         <dependency>
@@ -28,7 +30,7 @@
         <dependency>
             <groupId>com.webauthn4j</groupId>
             <artifactId>webauthn4j-core</artifactId>
-            <version>0.28.3.RELEASE</version>
+            <version>${webauthn.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -37,12 +39,12 @@
         <dependency>
             <groupId>gg.jte</groupId>
             <artifactId>jte</artifactId>
-            <version>3.1.12</version>
+            <version>${jte.version}</version>
         </dependency>
         <dependency>
             <groupId>gg.jte</groupId>
             <artifactId>jte-spring-boot-starter-3</artifactId>
-            <version>3.1.12</version>
+            <version>${jte.version}</version>
         </dependency>
 
         <!-- DB -->
@@ -59,7 +61,7 @@
         <dependency>
             <groupId>com.fasterxml.uuid</groupId>
             <artifactId>java-uuid-generator</artifactId>
-            <version>5.1.0</version>
+            <version>5.1.1</version>
         </dependency>
 
         <dependency>
@@ -85,7 +87,7 @@
             <plugin>
                 <groupId>gg.jte</groupId>
                 <artifactId>jte-maven-plugin</artifactId>
-                <version>3.1.12</version>
+                <version>${jte.version}</version>
                 <executions>
                     <execution>
                         <id>jte-generate</id>

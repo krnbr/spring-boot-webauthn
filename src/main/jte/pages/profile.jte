@@ -50,7 +50,7 @@
                     <%--<div class="relative w-full max-w-md">--%>
                     <div role="tablist" class="tabs tabs-lifted w-full">
                         <input type="radio" name="profile_tabs" role="tab" class="tab" aria-label="Profile" />
-                        <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                        <div role="tabpanel" class="tab-content bg-base-100 border-base-300  p-6">
                             Profile
                             <div class="flex flex-col gap-4 w-full lg:w-1/2">
                                 <label class="input input-bordered flex items-center gap-2">
@@ -76,12 +76,12 @@
                             </div>
                         </div>
                         <input type="radio" name="profile_tabs" role="tab" class="tab" aria-label="Password" />
-                        <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                        <div role="tabpanel" class="tab-content bg-base-100 border-base-300  p-6">
                             Password Management
                         </div>
 
                         <input type="radio" name="profile_tabs" role="tab" checked="checked" class="tab" aria-label="Passkeys" />
-                        <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                        <div role="tabpanel" class="tab-content bg-base-100 border-base-300  p-6">
                             <%--<h1 class="pl-4 pr-4 text-2xl font-bold mb-4 break-before-column drop-shadow drop-shadow-lg">Manage Passkeys</h1>--%>
                             <div class="flex justify-start items-end gap-2 mb-4">
                                 <div class="relative w-full max-w-md">
